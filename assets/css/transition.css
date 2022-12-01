@@ -1,0 +1,10 @@
+/* 页面切换动画*/
+.page-enter-active, .page-leave-active {
+    will-change: transform;
+    transition: all 0.3s ease-in-out;
+}
+
+.page-enter-from,.page-leave-to {
+    opacity: 0;
+    transform: translateX(-10px);
+}
