@@ -1,0 +1,59 @@
+{
+  "name": "nuxt3-template-demo",
+  "version": "0.0.1",
+  "packageManager": "pnpm@7.15.0",
+  "description": "nuxt3 TS tailwindcss pinia arco",
+  "author": "LUDA0831 <445001382@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/LUDA0831/nuxt3-template-demo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LUDA0831/nuxt3-template-demo"
+  },
+  "bugs": "https://github.com/LUDA0831/nuxt3-template-demo/issues",
+  "keywords": [
+    "nuxt3-template-demo",
+    "nuxt3",
+    "template"
+  ],
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@morev/vue-transitions": "^2.3.3",
+    "dplayer": "^1.27.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.31.0",
+    "@arco-design/web-vue": "^2.39.1",
+    "@nuxtjs/tailwindcss": "^6.1.3",
+    "@pinia-plugin-persistedstate/nuxt": "^1.0.0",
+    "@pinia/nuxt": "^0.4.6",
+    "@types/dplayer": "^1.25.2",
+    "@vueuse/core": "^9.6.0",
+    "@vueuse/nuxt": "^9.6.0",
+    "eslint": "^8.28.0",
+    "eslint-plugin-tailwindcss": "^3.7.0",
+    "lottie-web": "^5.10.0",
+    "nuxt": "3.0.0",
+    "nuxt-lodash": "^2.4.1",
+    "typescript": "^4.9.3",
+    "unplugin-auto-import": "^0.12.0",
+    "unplugin-vue-components": "^0.22.11",
+    "vite-plugin-compression": "^0.5.1"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "webpack",
+        "vue",
+        "pinia",
+        "vite"
+      ]
+    }
+  }
+}
