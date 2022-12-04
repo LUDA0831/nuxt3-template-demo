@@ -1,60 +1,89 @@
 <template>
   <div>
     <div class="flex space-x-4">
-      <button :class="{ 'text-blue-500': actionKey === 1 }" @click="onAction(1)">
+      <a-button type="primary" @click="onAction">
         切换
-      </button>
-      <button :class="{ 'text-blue-500': actionKey === 2 }" @click="onAction(2)">
-        切换
-      </button>
+      </a-button>
     </div>
-    <TransitionFade mode="out-in" appear>
+    <Transition name="fade" mode="out-in" appear>
       <div v-if="actionKey === 1">
         TransitionFade
       </div>
-      <div v-if="actionKey === 2">
+      <div v-else>
         TransitionFade
       </div>
-    </TransitionFade>
-    <TransitionExpand mode="out-in" appear>
+    </Transition>
+    <Transition name="slide-left" mode="out-in" appear>
       <div v-if="actionKey === 1">
-        TransitionExpand
+        TransitionSlideLeft
       </div>
-      <div v-if="actionKey === 2">
-        TransitionExpand
+      <div v-else>
+        TransitionSlideLeft
       </div>
-    </TransitionExpand>
-    <TransitionScale mode="out-in" appear>
+    </Transition>
+    <Transition name="slide-right" mode="out-in" appear>
       <div v-if="actionKey === 1">
-        TransitionScale
+        TransitionSlideRight
       </div>
-      <div v-if="actionKey === 2">
-        TransitionScale
+      <div v-else>
+        TransitionSlideRight
       </div>
-    </TransitionScale>
-    <TransitionSlide mode="out-in" appear>
-      <div v-if="actionKey === 1">
-        TransitionSlide
+    </Transition>
+    <a-space class="mt-[20px]">
+      <a-button type="primary" @click="insert">
+        插入
+      </a-button>
+      <a-button type="primary" @click="reset">
+        重置
+      </a-button>
+      <a-button type="primary" @click="shuffle">
+        打乱
+      </a-button>
+    </a-space>
+
+    <TransitionGroup tag="ul" name="fade" class="container">
+      <div v-for="item in items" :key="item" class="item">
+        {{ item }}
+        <button @click="remove(item)">
+          x
+        </button>
       </div>
-      <div v-if="actionKey === 2">
-        TransitionSlide
-      </div>
-    </TransitionSlide>
+    </TransitionGroup>
   </div>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  keepalive: true,
-})
 const actionKey = ref(1)
-const onAction = (key: number) => {
-  actionKey.value = key
+const onAction = () => {
+  actionKey.value = actionKey.value === 1 ? 2 : 1
+}
+
+const getInitialItems = (): number[] => [1, 2, 3, 4, 5]
+const items = ref(getInitialItems())
+let id = items.value.length + 1
+
+function insert() {
+  const i = Math.round(Math.random() * items.value.length)
+  items.value.splice(i, 0, id++)
+}
+
+function reset() {
+  items.value = getInitialItems()
+}
+
+function shuffle() {
+  items.value = useShuffle(items.value)
+}
+
+function remove(item: number) {
+  const i = items.value.indexOf(item)
+  if (i > -1)
+    items.value.splice(i, 1)
 }
 </script>
 
 <script lang="ts">
-export default { name: 'Transition' }
+export default { name: 'TransitionDemo' }
 </script>
 
 <style scoped>

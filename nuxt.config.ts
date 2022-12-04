@@ -6,7 +6,7 @@ import compression from 'vite-plugin-compression'
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt', 'nuxt-lodash', '@morev/vue-transitions/nuxt', '@pinia-plugin-persistedstate/nuxt',
+    '@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt', 'nuxt-lodash', '@pinia-plugin-persistedstate/nuxt',
   ],
   css: ['assets/css/index.css'],
   runtimeConfig: {

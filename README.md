@@ -6,7 +6,7 @@
 * 样式库 `tailwindcss`
 * 工具库 `lodash` `vueuse`
 * 代码风格 `eslint` `@antfu/eslint-config`
-* 动画 `lottie-web` 组件过渡`@morev/vue-transitions`
+* 动画 `lottie-web`
 * UI库 arco `@arco-design/web-vue` + 自动引入 `unplugin-vue-components` `unplugin-auto-import`
 * 视频播放器 `DPlayer`
 * GZIP压缩 `vite-plugin-compression`

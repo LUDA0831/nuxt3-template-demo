@@ -24,7 +24,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@morev/vue-transitions": "^2.3.3",
     "dplayer": "^1.27.0"
   },
   "devDependencies": {
