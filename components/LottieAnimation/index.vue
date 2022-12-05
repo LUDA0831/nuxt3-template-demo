@@ -12,6 +12,7 @@ const props = defineProps({
   loop: { type: [Number, Boolean], default: false },
   autoPlay: { type: Boolean, default: true },
   speed: { type: Number, default: 1 },
+  assetsPath: { type: String },
 })
 
 const emit = defineEmits<{
@@ -36,10 +37,11 @@ const init = (container: Element) => {
     loop: props.loop,
     autoplay: props.autoPlay,
     ...path ? { path } : { animationData },
+    ...props.assetsPath && { assetsPath: props.assetsPath },
   })
   anim.value.setSpeed(props.speed)
   anim.value.addEventListener('loopComplete', () => {
-    emit('loopComplete', {})
+    emit('loopComplete')
   })
   anim.value.addEventListener('complete', () => {
     emit('complete')
