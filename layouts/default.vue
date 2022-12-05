@@ -12,7 +12,8 @@
 <script lang="ts" setup>
 const router = useRouter()
 const navList = ref()
-const routerList = router.getRoutes().map(item => ({ to: item.path, name: item.name })).reverse()
+
+const routerList = router.getRoutes().map(item => ({ to: item.path, name: item.meta.title ?? item.name })).reverse()
 navList.value = routerList
 </script>
 

@@ -8,6 +8,6 @@ export default defineNuxtRouteMiddleware((to, from) => {
 
   const { public: { appTitle } } = useRuntimeConfig()
   useHead({
-    title: appTitle,
+    title: to.meta.title ? `${appTitle}-${to.meta.title}` : appTitle,
   })
 })

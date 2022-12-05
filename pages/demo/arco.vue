@@ -41,7 +41,9 @@
 <script lang="ts" setup>
 import { Message, Notification } from '@arco-design/web-vue'
 import type { Ref } from 'vue'
-
+definePageMeta({
+  title: 'ARCO示例',
+})
 const modalVisible: Ref<boolean> = ref(false)
 const onModal = () => {
   modalVisible.value = true

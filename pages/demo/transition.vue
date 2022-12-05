@@ -53,6 +53,9 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  title: '组件切换动画',
+})
 const actionKey = ref(1)
 const onAction = () => {
   actionKey.value = actionKey.value === 1 ? 2 : 1

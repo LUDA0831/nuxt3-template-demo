@@ -16,10 +16,14 @@
 import { Message } from '@arco-design/web-vue'
 import { useUserStore } from '~/stores/user.store'
 
-const userStore = useUserStore()
-
+definePageMeta({
+  title: 'API示例',
+})
 const route = useRoute()
+
 const router = useRouter()
+
+const userStore = useUserStore()
 const redirect = route.query.redirect ?? '/'
 const onLoginApi = async () => {
   await userStore.login()

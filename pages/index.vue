@@ -12,8 +12,8 @@
 <script lang="ts" setup>
 import { Message } from '@arco-design/web-vue'
 
-useHead({
-  title: 'vueuse示例',
+definePageMeta({
+  title: '首页',
 })
 
 const onShowEnv = () => {
