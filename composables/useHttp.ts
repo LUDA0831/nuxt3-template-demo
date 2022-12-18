@@ -1,5 +1,6 @@
 import { Message } from '@arco-design/web-vue'
 import { useUserStore } from '~/stores/user.store'
+import IconEmoticonDead from '~icons/mdi/emoticon-dead'
 
 export interface ResOptions<T> {
   data?: T
@@ -18,24 +19,31 @@ const fetch = $fetch.create({
     const userStore = useUserStore()
     if (!userStore.isLogin)
       return
-    const token = userStore.getToken()
     options.headers = new Headers(options.headers)
-    options.headers.set('Authorization', `Bearer ${token.value}`)
+    options.headers.set('Authorization', `Bearer ${userStore.getToken}`)
   },
   // 响应拦截
   onResponse({ response }) {
     if (response.headers.get('content-disposition') && response.status === 200)
       return response
     // 在这里判断错误
-    if (response._data.code !== 200)
-      return Promise.resolve(response._data)
+    if (response._data.code !== 200) {
+      Message.error({
+        content: response._data.message,
+        icon: () => h(IconEmoticonDead),
+      })
+      return Promise.reject(response._data)
+    }
     // 成功返回
     return response._data
   },
   // 错误处理
   onResponseError(error) {
     const err = (text: string) => {
-      Message.error(error?.response?._data.message ?? text)
+      Message.error({
+        content: error?.response?._data.message ?? text,
+        icon: () => h(IconEmoticonDead),
+      })
     }
     if (error?.response?._data) {
       const userStore = useUserStore()

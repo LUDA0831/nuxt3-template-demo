@@ -2,6 +2,6 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": ["@morev/vue-transitions/types/volar"]
+    "types": ["unplugin-icons/types/vue"]
   }
 }

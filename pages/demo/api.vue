@@ -26,7 +26,8 @@ const router = useRouter()
 const userStore = useUserStore()
 const redirect = route.query.redirect ?? '/'
 const onLoginApi = async () => {
-  await userStore.login()
+  const params = { mobile: 13333333333, user_pass: '333333' }
+  await userStore.login(params)
   Message.success('登录成功!')
   router.push(redirect as string)
 }

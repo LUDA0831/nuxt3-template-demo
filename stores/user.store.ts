@@ -1,14 +1,13 @@
 import { defineStore } from 'pinia'
-import type { LoginResultModel } from '~/apis/login'
+import type { LoginParams, LoginResultModel } from '~/apis/login'
 
 const storeSetup = () => {
   const userInfo = ref<LoginResultModel>()
-  const getUserInfo = () => computed(() => userInfo.value)
-  const isLogin = () => computed(() => !!userInfo.value?.remember_token)
-  const getToken = () => computed(() => userInfo.value?.remember_token)
+  const getUserInfo = computed(() => userInfo.value)
+  const isLogin = computed(() => !!userInfo.value?.remember_token)
+  const getToken = computed(() => userInfo.value?.remember_token)
 
-  const login = async () => {
-    const params = { mobile: 18602780217, user_pass: '123123' }
+  const login = async (params: LoginParams) => {
     const { login } = useApi()
     const { data } = await login.login(params)
     userInfo.value = data
@@ -21,6 +20,13 @@ const storeSetup = () => {
     await login.logout()
     clearUserInfo()
   }
-  return { userInfo, login, logout, getUserInfo, getToken, isLogin, clearUserInfo }
+
+  const count = ref(1)
+  const getCount = computed(() => count.value)
+  const addCount = () => {
+    count.value++
+  }
+
+  return { userInfo, login, logout, getUserInfo, getToken, isLogin, clearUserInfo, count, getCount, addCount }
 }
 export const useUserStore = defineStore('app-user', storeSetup, { persist: true })
