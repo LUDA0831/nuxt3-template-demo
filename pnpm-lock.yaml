@@ -20,9 +20,11 @@ specifiers:
   unplugin-icons: ^0.14.15
   unplugin-vue-components: ^0.22.11
   vite-plugin-compression: ^0.5.1
+  vue-flatpickr-component: ^11
 
 dependencies:
   dplayer: 1.27.0
+  vue-flatpickr-component: 11.0.1
 
 devDependencies:
   '@antfu/eslint-config': 0.33.1_s5ps7njkmjlaqajutnox5ntcla
@@ -3503,6 +3505,10 @@ packages:
     resolution: {integrity: sha512-b6suED+5/3rTpUBdG1gupIl8MPFCAMA0QXwmljLhvCUKcUvdE4gWky9zpuGCcXHOsz4J9wPGNWq6OKpmIzz3hQ==}
     hasBin: true
     dev: true
+
+  /flatpickr/4.6.13:
+    resolution: {integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==}
+    dev: false
 
   /flatted/3.2.7:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
@@ -7241,6 +7247,18 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /vue-flatpickr-component/11.0.1:
+    resolution: {integrity: sha512-dbBDC5a7XhsapGeejGrE7r2dj9SALJFAwMXJf/IYvbJhqsUZ8LZbFcK80vwOB6zgoSOrbrtBiVas2IQySLp1+w==}
+    engines: {node: '>=14.13.0'}
+    peerDependencies:
+      vue: ^3.2.0
+    peerDependenciesMeta:
+      vue:
+        optional: true
+    dependencies:
+      flatpickr: 4.6.13
+    dev: false
 
   /vue-router/4.1.6_vue@3.2.45:
     resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}

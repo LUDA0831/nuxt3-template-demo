@@ -26,7 +26,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "dplayer": "^1.27.0"
+    "dplayer": "^1.27.0",
+    "vue-flatpickr-component": "^11"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.33.1",

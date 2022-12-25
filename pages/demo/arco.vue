@@ -3,22 +3,30 @@
     <div class="text-2xl font-bold">
       Arco UI
     </div>
-    <a-space>
-      <a-button type="primary">
-        按钮示例
-      </a-button>
-      <a-button @click="onNotification">
-        Notification通知示例
-      </a-button>
-      <a-button type="dashed" @click="onMessage">
-        message消息示例
-      </a-button>
-      <a-button type="outline" @click="onDrawer">
-        抽屉示例
-      </a-button>
-      <a-button type="text" @click="onModal">
-        模态框示例
-      </a-button>
+    <a-space direction="vertical">
+      <a-space>
+        <a-button type="primary">
+          按钮示例
+        </a-button>
+        <a-button @click="onNotification">
+          Notification通知示例
+        </a-button>
+        <a-button type="dashed" @click="onMessage">
+          message消息示例
+        </a-button>
+        <a-button type="outline" @click="onDrawer">
+          抽屉示例
+        </a-button>
+        <a-button type="text" @click="onModal">
+          模态框示例
+        </a-button>
+      </a-space>
+      <a-space direction="vertical">
+        <a-alert type="warning">
+          ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.使用第三方替代
+        </a-alert>
+        <DatePick v-model="date" />
+      </a-space>
     </a-space>
     <a-drawer :width="340" :visible="drawerVisible" unmount-on-close @ok="drawerHandleOk" @cancel="drawerHandleCancel">
       <template #title>
@@ -44,6 +52,7 @@ import type { Ref } from 'vue'
 definePageMeta({
   title: 'ARCO示例',
 })
+const date = ref('2022-12-12')
 const modalVisible: Ref<boolean> = ref(false)
 const onModal = () => {
   modalVisible.value = true
