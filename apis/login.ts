@@ -51,8 +51,13 @@ enum Api {
 export const login = async (params: LoginParams) => {
   return await useHttp.post<LoginResultModel>(Api.login, params)
 }
+export const useFetchLogin = async (params: LoginParams) => {
+  return await useRequest.post<LoginResultModel>(Api.login, params, { lazy: true })
+}
 export const logout = async () => {
   await useHttp.post<void>(Api.logout)
 }
+export const useFetchLogout = async () => await useRequest.post(Api.logout)
 
 export const getUserInfo = async () => await useHttp.get(Api.getUserInfo)
+export const useFetchGetUserInfo = async () => await useRequest.get(Api.getUserInfo)

@@ -1,17 +1,44 @@
 import { Message } from '@arco-design/web-vue'
+import type { FetchResponse } from 'ofetch'
 import { useUserStore } from '~/stores/user.store'
 import IconEmoticonDead from '~icons/mdi/emoticon-dead'
 
 export interface ResOptions<T> {
-  data?: T
-  code?: number
-  message?: string
-  success?: boolean
+  data: T
+  code: number
+  message: string
+  success: boolean
+}
+
+export const handleError = (response: FetchResponse<ResOptions<any>> & FetchResponse<ResponseType>) => {
+  const err = (text: string) => {
+    Message.error({
+      content: response?._data?.message ?? text,
+      icon: () => h(IconEmoticonDead),
+    })
+  }
+  if (!response._data) {
+    err('请求超时，服务器无响应！')
+    return
+  }
+  const userStore = useUserStore()
+  const handleMap: { [key: number]: () => void } = {
+    404: () => err('服务器资源不存在'),
+    500: () => err('服务器内部错误'),
+    403: () => err('没有权限访问该资源'),
+    401: () => {
+      err('登录状态已过期，需要重新登录')
+      userStore.clearUserInfo()
+      // TODO 跳转实际登录页
+      navigateTo('/')
+    },
+  }
+  handleMap[response.status] ? handleMap[response.status]() : err('未知错误！')
 }
 
 const fetch = $fetch.create({
   // 请求拦截器
-  async onRequest({ options }) {
+  onRequest({ options }) {
     // 添加baseURL,nuxt3环境变量要从useRuntimeConfig里面取
     const { public: { apiBase } } = useRuntimeConfig()
     options.baseURL = apiBase
@@ -28,50 +55,17 @@ const fetch = $fetch.create({
       return response
     // 在这里判断错误
     if (response._data.code !== 200) {
-      Message.error({
-        content: response._data.message,
-        icon: () => h(IconEmoticonDead),
-      })
+      handleError(response)
       return Promise.reject(response._data)
     }
+
     // 成功返回
     return response._data
   },
   // 错误处理
-  onResponseError(error) {
-    const err = (text: string) => {
-      Message.error({
-        content: error?.response?._data.message ?? text,
-        icon: () => h(IconEmoticonDead),
-      })
-    }
-    if (error?.response?._data) {
-      const userStore = useUserStore()
-
-      switch (error.response.status) {
-        case 404:
-          err('服务器资源不存在')
-          break
-        case 500:
-          err('服务器内部错误')
-          break
-        case 401:
-          // 清除缓存
-          userStore.clearUserInfo()
-          err('登录状态已过期，需要重新登录')
-          // TODO 跳转到登录界面
-          break
-        case 403:
-          err('没有权限访问该资源')
-          break
-        default:
-          err('未知错误！')
-      }
-    }
-    else {
-      err('请求超时，服务器无响应！')
-    }
-    return Promise.reject(error?.response?._data ?? null)
+  onResponseError({ response }) {
+    handleError(response)
+    return Promise.reject(response?._data ?? null)
   },
 })
 
