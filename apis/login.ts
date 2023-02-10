@@ -1,3 +1,5 @@
+import type { HttpOption } from '~/composables/useHttp'
+
 export interface LoginParams {
   mobile: number
   user_pass?: string
@@ -48,16 +50,12 @@ enum Api {
   logout = '/users/app/logout',
   getUserInfo = '/users/app/getUserInfo',
 }
-export const login = async (params: LoginParams) => {
-  return await useHttp.post<LoginResultModel>(Api.login, params)
+export const login = async (params: LoginParams, option?: HttpOption<LoginResultModel>) => {
+  return await useHttp.post<LoginResultModel>(Api.login, params, option)
 }
-export const useFetchLogin = async (params: LoginParams) => {
-  return await useRequest.post<LoginResultModel>(Api.login, params, { lazy: true })
-}
-export const logout = async () => {
-  await useHttp.post<void>(Api.logout)
-}
-export const useFetchLogout = async () => await useRequest.post(Api.logout)
 
-export const getUserInfo = async () => await useHttp.get(Api.getUserInfo)
-export const useFetchGetUserInfo = async () => await useRequest.get(Api.getUserInfo)
+export const logout = async (option?: HttpOption<any>) => {
+  await useHttp.post<void>(Api.logout, {}, option)
+}
+
+export const getUserInfo = async (option?: HttpOption<any>) => await useHttp.get(Api.getUserInfo, {}, option)

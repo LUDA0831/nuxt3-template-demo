@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      {{ data }}
+      {{ pending ? 'Loading' : bannerList }}
     </div>
     <div class="flex space-x-4">
       <button @click="onLogout">
@@ -15,15 +15,6 @@
       </button>
       <a-button :loading="pending" @click="refresh">
         刷新接口
-      </a-button>
-      <a-button :loading="pending" @click="onUseFetchLogin">
-        useFetchLogin
-      </a-button>
-      <a-button :loading="pending" @click="onUseFetchLogout">
-        useFetchLogout
-      </a-button>
-      <a-button :loading="pending" @click="onUseFetchGetUserInfo">
-        useFetchGetUserInfo
       </a-button>
     </div>
   </div>
@@ -55,34 +46,18 @@ const onLogout = async () => {
   await userStore.logout()
   Message.success('已退出登录!')
 }
+// immediate 进入页面请求接口,使用execute手动请求
+const { data: userInfoResult, execute } = await login.getUserInfo({ immediate: false })
+const userInfo = computed(() => userInfoResult.value?.data)
 const onGetUserInfoApi = async () => {
-  const { message } = await login.getUserInfo()
-  Message.success(message!)
+  await execute()
+  console.log(userInfo)
+  Message.success(userInfoResult.value?.message ?? '请求成功')
 }
 
-// useFetch封装示例,获取页面初始数据时比较有用
-const { data, pending, error, refresh } = await sys.getBanner(6)
-watch(pending, () => {
-  console.log(pending)
-})
-watch(data, (newData) => {
-  console.log(newData)
-})
-const onUseFetchLogin = async () => {
-  const params: LoginParams = { mobile: 13333333333, user_pass: '333333' }
-  const { data, pending, error, refresh } = await login.useFetchLogin(params)
-  userStore.setUserInfo(data.value!.data)
-  Message.success('登录成功!')
-  router.push(redirect as string)
-}
-const onUseFetchGetUserInfo = async () => {
-  const { data, pending, refresh, error } = await login.useFetchGetUserInfo()
-  Message.success(data.value!.message)
-}
-const onUseFetchLogout = async () => {
-  const { data, pending, refresh, error } = await login.useFetchLogout()
-  Message.success('已退出登录!')
-}
+// useFetch封装示例,lazy 不阻塞路由导航,进入页面服务端请求数据
+const { data, pending, refresh } = await sys.getBanner(6, { lazy: true })
+const bannerList = computed(() => data.value?.data)
 </script>
 
 <script lang="ts">

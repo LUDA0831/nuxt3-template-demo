@@ -12,7 +12,8 @@ const storeSetup = () => {
   const login = async (params: LoginParams) => {
     const { login } = useApi()
     const { data } = await login.login(params)
-    userInfo.value = data
+    userInfo.value = data.value?.data
+    return data.value?.data
   }
   const clearUserInfo = () => {
     userInfo.value = undefined

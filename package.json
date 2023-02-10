@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev -o",
     "clean": "nuxt clean",
     "analyze": "nuxt analyze",
     "generate": "nuxt generate",
