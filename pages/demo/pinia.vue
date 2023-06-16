@@ -1,3 +1,21 @@
+<script lang="ts" setup>
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '~/stores/user.store'
+
+definePageMeta({
+  title: 'Pinia全局状态',
+})
+defineOptions({ name: 'DemoPinia' })
+
+const userStore = useUserStore()
+const getUserInfo = userStore.getUserInfo
+const count = computed(() => userStore.getCount)
+const { getCount } = storeToRefs(userStore)
+function addCount() {
+  userStore.addCount()
+}
+</script>
+
 <template>
   <div>
     pinia
@@ -16,27 +34,6 @@
     </a-button>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { storeToRefs } from 'pinia'
-import { useUserStore } from '~/stores/user.store'
-
-definePageMeta({
-  title: 'Pinia全局状态',
-})
-const userStore = useUserStore()
-const getUserInfo = userStore.getUserInfo
-const count = computed(() => userStore.getCount)
-const { getCount } = storeToRefs(userStore)
-const addCount = () => {
-  console.log(userStore.getCount)
-  userStore.addCount()
-}
-</script>
-
-<script lang="ts">
-export default { name: 'Pinia' }
-</script>
 
 <style scoped>
 

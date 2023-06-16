@@ -1,3 +1,46 @@
+<script lang="ts" setup>
+import { Message, Notification } from '@arco-design/web-vue'
+import type { Ref } from 'vue'
+
+definePageMeta({
+  title: 'ARCO示例',
+})
+
+defineOptions({ name: 'DemoArco' })
+
+const date = ref('2022-12-12')
+const modalVisible: Ref<boolean> = ref(false)
+function onModal() {
+  modalVisible.value = true
+}
+function modalHandleOk() {
+  modalVisible.value = false
+}
+function modalHandleCancel() {
+  modalVisible.value = false
+}
+
+const drawerVisible: Ref<boolean> = ref(false)
+function onDrawer() {
+  drawerVisible.value = true
+}
+function drawerHandleOk() {
+  drawerVisible.value = false
+}
+function drawerHandleCancel() {
+  drawerVisible.value = false
+}
+function onNotification() {
+  Notification.info({
+    title: 'Notification',
+    content: 'This is a notification!',
+  })
+}
+function onMessage() {
+  Message.success('成功消息')
+}
+</script>
+
 <template>
   <div>
     <div class="text-2xl font-bold">
@@ -45,49 +88,6 @@
     </a-modal>
   </div>
 </template>
-
-<script lang="ts" setup>
-import { Message, Notification } from '@arco-design/web-vue'
-import type { Ref } from 'vue'
-definePageMeta({
-  title: 'ARCO示例',
-})
-const date = ref('2022-12-12')
-const modalVisible: Ref<boolean> = ref(false)
-const onModal = () => {
-  modalVisible.value = true
-}
-const modalHandleOk = () => {
-  modalVisible.value = false
-}
-const modalHandleCancel = () => {
-  modalVisible.value = false
-}
-
-const drawerVisible: Ref<boolean> = ref(false)
-const onDrawer = () => {
-  drawerVisible.value = true
-}
-const drawerHandleOk = () => {
-  drawerVisible.value = false
-}
-const drawerHandleCancel = () => {
-  drawerVisible.value = false
-}
-const onNotification = () => {
-  Notification.info({
-    title: 'Notification',
-    content: 'This is a notification!',
-  })
-}
-const onMessage = () => {
-  Message.success('成功消息')
-}
-</script>
-
-<script lang="ts">
-export default { name: 'Arco' }
-</script>
 
 <style scoped>
 

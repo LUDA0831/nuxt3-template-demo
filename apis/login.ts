@@ -50,12 +50,16 @@ enum Api {
   logout = '/users/app/logout',
   getUserInfo = '/users/app/getUserInfo',
 }
-export const login = async (params: LoginParams, option?: HttpOption<LoginResultModel>) => {
-  return await useHttp.post<LoginResultModel>(Api.login, params, option)
+
+// option就是useFetch的选项参数
+export async function login(params: LoginParams, option?: HttpOption<LoginResultModel>) {
+  return useHttp.post<LoginResultModel>(Api.login, params, option)
 }
 
-export const logout = async (option?: HttpOption<any>) => {
-  await useHttp.post<void>(Api.logout, {}, option)
+export async function logout(option?: HttpOption<any>) {
+  return useHttp.post<void>(Api.logout, {}, option)
 }
 
-export const getUserInfo = async (option?: HttpOption<any>) => await useHttp.get(Api.getUserInfo, {}, option)
+export async function getUserInfo(option?: HttpOption<any>) {
+  return useHttp.get(Api.getUserInfo, {}, option)
+}

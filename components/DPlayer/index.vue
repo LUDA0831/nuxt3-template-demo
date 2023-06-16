@@ -1,10 +1,3 @@
-<template>
-  <div>
-    <div ref="playerRef" />
-  </div>
-</template>
-
-<!-- https://dplayer.diygod.dev/zh/guide.html#special-thanks -->
 <script lang="ts" setup>
 const { url } = defineProps<{
   elId?: string
@@ -32,7 +25,7 @@ onMounted(async () => {
 /**
  * 添加视频事件
  */
-const addEvent = () => {
+function addEvent() {
   // 点击播放事件
   dp.value.on('playing', () => emit('playing'))
   // 暂停事件
@@ -46,9 +39,16 @@ const addEvent = () => {
 defineExpose({ dp })
 </script>
 
+<!-- https://dplayer.diygod.dev/zh/guide.html#special-thanks -->
 <script lang="ts">
 export default { name: 'Index' }
 </script>
+
+<template>
+  <div>
+    <div ref="playerRef" />
+  </div>
+</template>
 
 <style scoped>
 

@@ -7,17 +7,6 @@
     "@antfu"
   ],
   "rules": {
-    "vue/component-tags-order": [
-      "error",
-      {
-        "order": [
-          "template",
-          "script[setup]",
-          "script:not([setup])",
-          "style"
-        ]
-      }
-    ],
     "tailwindcss/no-custom-classname": "off"
   }
 }

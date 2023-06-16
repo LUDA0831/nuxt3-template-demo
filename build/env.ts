@@ -10,7 +10,7 @@ const env = loadEnv(process.env.NODE_ENV ?? 'production', process.cwd())
 const viteEnv = wrapperEnv(env)
 
 const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production'
-export const useEnv = (): EnvConfig => {
+export function useEnv(): EnvConfig {
   return {
     viteEnv,
     mode,

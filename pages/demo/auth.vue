@@ -1,19 +1,16 @@
-<template>
-  <div>
-    auth
-  </div>
-</template>
-
 <script lang="ts" setup>
 definePageMeta({
   middleware: 'auth',
   title: '中间件认证示例',
 })
+defineOptions({ name: 'DemoAuth' })
 </script>
 
-<script lang="ts">
-export default { name: 'Auth' }
-</script>
+<template>
+  <div>
+    auth
+  </div>
+</template>
 
 <style scoped>
 

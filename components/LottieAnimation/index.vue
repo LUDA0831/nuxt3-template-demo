@@ -1,7 +1,3 @@
-<template>
-  <div ref="animationRef" />
-</template>
-
 <script lang="ts" setup>
 import type { AnimationDirection, AnimationItem } from 'lottie-web'
 import Lottie from 'lottie-web'
@@ -25,7 +21,7 @@ const emit = defineEmits<{
 const animationRef = shallowRef<Element>()
 const anim = ref<AnimationItem>()
 
-const init = (container: Element) => {
+function init(container: Element) {
   const animationData = props?.animationData && JSON.parse(JSON.stringify(props.animationData))
   const path = props?.path
   if (!animationData && !path)
@@ -53,43 +49,43 @@ const init = (container: Element) => {
     emit('segmentStart')
   })
 }
-const destroy = (): void => {
+function destroy(): void {
   if (anim.value)
     anim.value.destroy()
 }
 
-const play = (): void => {
+function play(): void {
   if (anim.value)
     anim.value.play()
 }
-const stop = () => {
+function stop() {
   if (anim.value)
     anim.value.stop()
 }
-const pause = () => {
+function pause() {
   if (anim.value)
     anim.value.pause()
 }
-const setSpeed = (speed: number) => {
+function setSpeed(speed: number) {
   if (anim.value)
     anim.value.setSpeed(speed)
 }
-const setDirection = (direction: AnimationDirection) => {
+function setDirection(direction: AnimationDirection) {
   if (anim.value)
     anim.value.setDirection(direction)
 }
-const getDuration = (inFrames: boolean) => {
+function getDuration(inFrames: boolean) {
   if (anim.value)
     return anim.value.getDuration(inFrames)
   return 0
 }
-const goToAndStop = (position: number, isFrame: boolean): void => {
+function goToAndStop(position: number, isFrame: boolean): void {
   if (anim.value) {
     anim.value.goToAndStop(position, isFrame)
     emit('stopped')
   }
 }
-const goToAndPlay = (position: number, isFrame: boolean): void => {
+function goToAndPlay(position: number, isFrame: boolean): void {
   if (anim.value)
     anim.value.goToAndPlay(position, isFrame)
 }
@@ -113,6 +109,10 @@ defineExpose({
   destroy,
 })
 </script>
+
+<template>
+  <div ref="animationRef" />
+</template>
 
 <style scoped>
 

@@ -1,9 +1,3 @@
-<template>
-  <span class="arco-input-wrapper">
-    <FlatPick v-model="date" class="arco-input arco-input-size-medium" :config="config" />
-  </span>
-</template>
-
 <script lang="tsx" setup>
 import '@arco-design/web-vue/es/input/style/css'
 import type { Ref } from 'vue'
@@ -11,6 +5,7 @@ import FlatPick from 'vue-flatpickr-component'
 import { Mandarin } from 'flatpickr/dist/l10n/zh.js'
 import 'flatpickr/dist/flatpickr.css'
 import type { BaseOptions } from 'flatpickr/dist/types/options'
+
 const props = defineProps<{
   modelValue: string
   config?: Partial<BaseOptions>
@@ -29,6 +24,12 @@ const config: Ref<Partial<BaseOptions>> = ref({
 
 const date = useVModel(props, 'modelValue', emit)
 </script>
+
+<template>
+  <span class="arco-input-wrapper">
+    <FlatPick v-model="date" class="arco-input arco-input-size-medium" :config="config" />
+  </span>
+</template>
 
 <style scoped>
 

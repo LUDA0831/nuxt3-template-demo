@@ -4,6 +4,7 @@ import type { Ref } from 'vue'
 import type { UseFetchOptions } from '#app'
 import { useUserStore } from '~/stores/user.store'
 import IconEmoticonDead from '~icons/mdi/emoticon-dead'
+
 export interface ResOptions<T> {
   data: T
   code: number
@@ -15,7 +16,7 @@ type UrlType = string | Request | Ref<string | Request> | (() => string | Reques
 
 export type HttpOption<T> = UseFetchOptions<ResOptions<T>>
 
-const handleError = <T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) => {
+function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) {
   const err = (text: string) => {
     Message.error({
       content: response?._data?.message ?? text,
@@ -41,7 +42,7 @@ const handleError = <T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
   handleMap[response.status] ? handleMap[response.status]() : err('未知错误！')
 }
 // get方法传递数组形式参数
-const paramsSerializer = (params?: SearchParameters) => {
+function paramsSerializer(params?: SearchParameters) {
   if (!params)
     return
 
@@ -54,7 +55,7 @@ const paramsSerializer = (params?: SearchParameters) => {
   })
   return query
 }
-const fetch = <T>(url: UrlType, option: UseFetchOptions<ResOptions<T>>) => {
+function fetch<T>(url: UrlType, option: any) {
   return useFetch<ResOptions<T>>(url, {
     // 请求拦截器
     onRequest({ options }) {

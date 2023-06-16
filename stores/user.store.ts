@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import type { LoginParams, LoginResultModel } from '~/apis/login'
 
-const storeSetup = () => {
+function storeSetup() {
   const userInfo = ref<LoginResultModel>()
   const getUserInfo = computed(() => userInfo.value)
   const isLogin = computed(() => !!userInfo.value?.remember_token)

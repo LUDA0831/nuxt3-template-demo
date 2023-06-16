@@ -1,4 +1,4 @@
-export const useFixApp = () => {
+export function useFixApp() {
   // TODO: Remove when https://github.com/vuejs/core/issues/5513 fixed
   const key = ref(0)
   const messages = [

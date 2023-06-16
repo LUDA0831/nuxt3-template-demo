@@ -1,7 +1,7 @@
 import compression from 'vite-plugin-compression'
 import type { PluginOption } from 'vite'
 
-export const createCompression = (env: ViteEnv) => {
+export function createCompression(env: ViteEnv) {
   const { VITE_BUILD_COMPRESS } = env
   const compressList = VITE_BUILD_COMPRESS?.split(',') ?? []
   const plugin: (PluginOption | PluginOption[])[] = []

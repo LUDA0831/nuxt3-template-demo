@@ -13,9 +13,11 @@ export default defineNuxtConfig({
   },
   typescript: {
     shim: false,
+    strict: true,
   },
   experimental: {
     reactivityTransform: true,
+    typedPages: true,
   },
   vite: createViteConfig(),
 })

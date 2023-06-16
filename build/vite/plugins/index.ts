@@ -3,7 +3,7 @@ import { createCompression } from './compression'
 import { createComponents } from './components'
 import { createIcons } from './icons'
 
-export const createVitePlugins = (viteEnv: ViteEnv) => {
+export function createVitePlugins(viteEnv: ViteEnv) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
     // 组件按需导入
     createComponents(),
