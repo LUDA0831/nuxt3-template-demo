@@ -1,7 +1,8 @@
 {
   "name": "nuxt3-template-demo",
+  "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@7.15.0",
+  "packageManager": "pnpm@8.10.2",
   "description": "nuxt3 TS tailwindcss pinia arco",
   "author": "LUDA0831 <445001382@qq.com>",
   "license": "MIT",
@@ -25,39 +26,37 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
-    "dplayer": "^1.27.1",
-    "vue-flatpickr-component": "^11.0.3"
+    "dplayer": "^1.27.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
-    "@arco-design/web-vue": "^2.47.1",
-    "@iconify-json/mdi": "^1.1.52",
-    "@nuxtjs/tailwindcss": "^6.7.2",
-    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-    "@pinia/nuxt": "^0.4.11",
-    "@types/dplayer": "^1.25.2",
-    "@vueuse/core": "^10.1.2",
-    "@vueuse/nuxt": "^10.1.2",
-    "eslint": "^8.42.0",
-    "eslint-plugin-tailwindcss": "^3.12.1",
+    "@antfu/eslint-config": "^1.1.0",
+    "@arco-design/web-vue": "^2.53.0",
+    "@iconify-json/mdi": "^1.1.55",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@types/dplayer": "^1.25.4",
+    "@types/node": "18.18.2",
+    "@unocss/eslint-config": "^0.57.2",
+    "@unocss/nuxt": "^0.57.2",
+    "@unocss/preset-rem-to-px": "^0.57.2",
+    "@vueuse/core": "^10.5.0",
+    "@vueuse/nuxt": "^10.5.0",
+    "eslint": "^8.53.0",
     "lottie-web": "^5.12.2",
-    "nuxt": "3.5.3",
-    "nuxt-lodash": "^2.4.1",
-    "typescript": "^4.9.5",
-    "unplugin-icons": "^0.16.3",
-    "unplugin-vue-components": "^0.25.1",
+    "nuxt": "3.8.0",
+    "nuxt-lodash": "^2.5.3",
+    "typescript": "^5.2.2",
+    "unplugin-icons": "^0.17.3",
+    "unplugin-vue-components": "^0.25.2",
     "vite-plugin-compression": "^0.5.1"
   },
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
-        "webpack",
-        "vue",
-        "pinia",
-        "vite"
+        "vue"
       ]
     }
   }

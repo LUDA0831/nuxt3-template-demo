@@ -3,9 +3,13 @@ import { createRuntimeConfig, createViteConfig } from './build'
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss', '@pinia/nuxt', '@vueuse/nuxt', 'nuxt-lodash', '@pinia-plugin-persistedstate/nuxt',
+    '@unocss/nuxt',
+    '@pinia/nuxt',
+    '@vueuse/nuxt',
+    'nuxt-lodash',
+    '@pinia-plugin-persistedstate/nuxt',
   ],
-  css: ['assets/css/index.css'],
+  css: ['assets/css/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },

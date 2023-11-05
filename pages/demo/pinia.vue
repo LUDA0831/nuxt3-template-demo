@@ -2,11 +2,10 @@
 import { storeToRefs } from 'pinia'
 import { useUserStore } from '~/stores/user.store'
 
+defineOptions({ name: 'DemoPinia' })
 definePageMeta({
   title: 'Pinia全局状态',
 })
-defineOptions({ name: 'DemoPinia' })
-
 const userStore = useUserStore()
 const getUserInfo = userStore.getUserInfo
 const count = computed(() => userStore.getCount)

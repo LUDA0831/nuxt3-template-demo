@@ -3,7 +3,8 @@
 ## 依赖
 * Typescript
 * 状态管理 `pinia` + `pinia-plugin-persistedstate`持久化
-* 样式库 `tailwindcss`
+* ~~样式库 `tailwindcss`~~
+* 样式库 `unocss`
 * 工具库 `lodash` `vueuse`
 * 代码风格 `eslint` `@antfu/eslint-config`
 * 动画 `lottie-web`
@@ -27,6 +28,6 @@
 手动导入的组件在app.vue里导入样式,已导入`message` `notification`
 
 ## 已知问题
-* 设置页面切换动画之后,页面之间快速点击跳转页面报错,在app.vue里使用`composables/useFixApp.ts`hook临时修复,
-* ⚠️ ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.
-* 示例里添加第三方日期选择组件临时替代
+* 设置页面切换动画之后,页面之间快速点击跳转页面报错,~~在app.vue里使用`composables/useFixApp.ts`hook临时修复,~~ nuxt3.6.0之后hook临时修复失效,在plugins/router.ts里修复,[修复方案issues](https://github.com/nuxt/nuxt/issues/13350)
+* ~~⚠️ ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.~~
+* ~~示例里添加第三方日期选择组件临时替代~~

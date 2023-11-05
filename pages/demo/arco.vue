@@ -2,11 +2,11 @@
 import { Message, Notification } from '@arco-design/web-vue'
 import type { Ref } from 'vue'
 
+defineOptions({ name: 'DemoArco' })
+
 definePageMeta({
   title: 'ARCO示例',
 })
-
-defineOptions({ name: 'DemoArco' })
 
 const date = ref('2022-12-12')
 const modalVisible: Ref<boolean> = ref(false)
@@ -66,9 +66,11 @@ function onMessage() {
       </a-space>
       <a-space direction="vertical">
         <a-alert type="warning">
-          ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.使用第三方替代
+          <p line-through>
+            ArcoUI组件库日期选择组件在nuxt3里面报错,目前无法解决.使用第三方替代
+          </p>
         </a-alert>
-        <DatePick v-model="date" />
+        <a-date-picker v-model="date" />
       </a-space>
     </a-space>
     <a-drawer :width="340" :visible="drawerVisible" unmount-on-close @ok="drawerHandleOk" @cancel="drawerHandleCancel">

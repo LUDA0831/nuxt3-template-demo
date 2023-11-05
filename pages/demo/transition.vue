@@ -1,9 +1,8 @@
 <script lang="ts" setup>
+defineOptions({ name: 'DemoTransition' })
 definePageMeta({
   title: '组件切换动画',
 })
-defineOptions({ name: 'DemoTransition' })
-
 const actionKey = ref(1)
 function onAction() {
   actionKey.value = actionKey.value === 1 ? 2 : 1

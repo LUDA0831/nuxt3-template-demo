@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import LottieAnimation from '@/components/LottieAnimation/index.vue'
 
+defineOptions({ name: 'DemoLottie' })
 definePageMeta({
   title: 'Lottie动画示例',
 })
-defineOptions({ name: 'DemoLottie' })
-
 const lottieRef = ref<InstanceType<typeof LottieAnimation>>()
 
 const path = 'https://labs.nearpod.com/bodymovin/demo/markus/halloween/markus.json'

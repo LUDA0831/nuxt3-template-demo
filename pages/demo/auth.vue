@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+defineOptions({ name: 'DemoAuth' })
 definePageMeta({
   middleware: 'auth',
   title: '中间件认证示例',
 })
-defineOptions({ name: 'DemoAuth' })
 </script>
 
 <template>
