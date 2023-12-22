@@ -2,11 +2,11 @@
 import { Message } from '@arco-design/web-vue'
 import { useUserStore } from '~/stores/user.store'
 
+defineOptions({ name: 'DemoApi' })
+
 definePageMeta({
   title: 'API示例',
 })
-
-defineOptions({ name: 'DemoApi' })
 
 const route = useRoute()
 

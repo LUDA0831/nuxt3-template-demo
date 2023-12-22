@@ -1,9 +1,8 @@
 <script lang="ts" setup>
+defineOptions({ name: 'DemoTransition' })
 definePageMeta({
   title: '组件切换动画',
 })
-defineOptions({ name: 'DemoTransition' })
-
 const actionKey = ref(1)
 function onAction() {
   actionKey.value = actionKey.value === 1 ? 2 : 1
@@ -79,9 +78,9 @@ function remove(item: number) {
     <TransitionGroup tag="ul" name="fade" class="container">
       <div v-for="item in items" :key="item" class="item">
         {{ item }}
-        <button @click="remove(item)">
+        <a-button type="text" @click="remove(item)">
           x
-        </button>
+        </a-button>
       </div>
     </TransitionGroup>
   </div>

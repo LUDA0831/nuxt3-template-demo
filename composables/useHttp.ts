@@ -55,7 +55,7 @@ function paramsSerializer(params?: SearchParameters) {
   })
   return query
 }
-function fetch<T>(url: UrlType, option: any) {
+function fetch<T>(url: UrlType, option: HttpOption<T>) {
   return useFetch<ResOptions<T>>(url, {
     // 请求拦截器
     onRequest({ options }) {

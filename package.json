@@ -1,8 +1,9 @@
 {
   "name": "nuxt3-template-demo",
-  "version": "0.0.1",
-  "packageManager": "pnpm@7.15.0",
-  "description": "nuxt3 TS tailwindcss pinia arco",
+  "type": "module",
+  "version": "0.1.0",
+  "packageManager": "pnpm@8.12.1",
+  "description": "nuxt3 TS unocss pinia arco",
   "author": "LUDA0831 <445001382@qq.com>",
   "license": "MIT",
   "homepage": "https://github.com/LUDA0831/nuxt3-template-demo",
@@ -25,40 +26,34 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "typecheck": "nuxt typecheck",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+    "lint": "eslint . --fix"
   },
   "dependencies": {
-    "dplayer": "^1.27.1",
-    "vue-flatpickr-component": "^11.0.3"
+    "@unocss/reset": "^0.58.0",
+    "dplayer": "^1.27.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
-    "@arco-design/web-vue": "^2.47.1",
-    "@iconify-json/mdi": "^1.1.52",
-    "@nuxtjs/tailwindcss": "^6.7.2",
-    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
-    "@pinia/nuxt": "^0.4.11",
-    "@types/dplayer": "^1.25.2",
-    "@vueuse/core": "^10.1.2",
-    "@vueuse/nuxt": "^10.1.2",
-    "eslint": "^8.42.0",
-    "eslint-plugin-tailwindcss": "^3.12.1",
+    "@antfu/eslint-config": "^2.4.6",
+    "@arco-design/web-vue": "^2.53.3",
+    "@iconify-json/mdi": "^1.1.63",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
+    "@pinia/nuxt": "^0.5.1",
+    "@types/dplayer": "^1.25.5",
+    "@unocss/eslint-config": "^0.58.0",
+    "@unocss/nuxt": "^0.58.0",
+    "@unocss/preset-rem-to-px": "^0.58.0",
+    "@vueuse/core": "^10.7.0",
+    "@vueuse/nuxt": "^10.7.0",
+    "eslint": "^8.56.0",
     "lottie-web": "^5.12.2",
-    "nuxt": "3.5.3",
-    "nuxt-lodash": "^2.4.1",
-    "typescript": "^4.9.5",
-    "unplugin-icons": "^0.16.3",
-    "unplugin-vue-components": "^0.25.1",
-    "vite-plugin-compression": "^0.5.1"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "webpack",
-        "vue",
-        "pinia",
-        "vite"
-      ]
-    }
+    "nuxt": "3.8.2",
+    "nuxt-lodash": "^2.5.3",
+    "typescript": "^5.3.3",
+    "unocss": "^0.58.0",
+    "unplugin-icons": "^0.18.1",
+    "unplugin-vue-components": "^0.26.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
   }
 }

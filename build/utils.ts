@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 // Read all environment variable configuration files to process.env
 export function wrapperEnv(envConf: Recordable): ViteEnv {
   const ret: any = {}
