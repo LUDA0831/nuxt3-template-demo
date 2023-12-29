@@ -20,7 +20,6 @@ export default defineNuxtConfig({
     strict: true,
   },
   experimental: {
-    reactivityTransform: true,
     typedPages: true,
   },
   vite: createViteConfig(),
