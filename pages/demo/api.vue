@@ -26,8 +26,8 @@ async function onLogout() {
   await userStore.logout()
   Message.success('已退出登录!')
 }
-// immediate 进入页面请求接口,使用execute手动请求
-const { data: userInfoResult, execute } = await login.getUserInfo({ immediate: false })
+// immediate 进入页面请求接口,使用execute手动请求,顶层请求使用useAsyncData
+const { data: userInfoResult, execute } = await useAsyncData(() => login.getUserInfo(), { immediate: false })
 const userInfo = computed(() => userInfoResult.value?.data)
 async function onGetUserInfoApi() {
   await execute()
@@ -35,8 +35,8 @@ async function onGetUserInfoApi() {
   Message.success(userInfoResult.value?.message ?? '请求成功')
 }
 
-// useFetch封装示例,lazy 不阻塞路由导航,进入页面服务端请求数据
-const { data, pending, refresh } = await sys.getBanner(6, { lazy: true })
+// 封装示例,lazy 不阻塞路由导航,进入页面服务端请求数据,顶层请求使用useAsyncData
+const { data, pending, refresh } = await useAsyncData(() => sys.getBanner(6), { lazy: true })
 
 const bannerList = computed(() => {
   return data.value?.data

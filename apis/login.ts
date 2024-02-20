@@ -1,5 +1,3 @@
-import type { HttpOption } from '~/composables/useHttp'
-
 export interface LoginParams {
   mobile: number
   user_pass?: string
@@ -52,14 +50,14 @@ enum Api {
 }
 
 // option就是useFetch的选项参数
-export async function login(params: LoginParams, option?: HttpOption<LoginResultModel>) {
-  return useHttp.post<LoginResultModel>(Api.login, params, option)
+export async function login(params: LoginParams) {
+  return useHttp.post<LoginResultModel>(Api.login, params)
 }
 
-export async function logout(option?: HttpOption<any>) {
-  return useHttp.post<void>(Api.logout, {}, option)
+export async function logout() {
+  return useHttp.post<void>(Api.logout)
 }
 
-export async function getUserInfo(option?: HttpOption<any>) {
-  return useHttp.get(Api.getUserInfo, {}, option)
+export async function getUserInfo() {
+  return useHttp.get(Api.getUserInfo)
 }
