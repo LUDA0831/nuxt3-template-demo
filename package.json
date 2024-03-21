@@ -29,31 +29,31 @@
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@unocss/reset": "^0.58.5",
+    "@unocss/reset": "^0.58.6",
     "dplayer": "^1.27.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.6.4",
-    "@arco-design/web-vue": "^2.54.4",
+    "@antfu/eslint-config": "^2.8.3",
+    "@arco-design/web-vue": "^2.55.0",
     "@iconify-json/mdi": "^1.1.64",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.0",
     "@pinia/nuxt": "^0.5.1",
     "@types/dplayer": "^1.25.5",
-    "@unocss/eslint-config": "^0.58.5",
-    "@unocss/nuxt": "^0.58.5",
-    "@unocss/preset-rem-to-px": "^0.58.5",
-    "@vueuse/core": "^10.7.2",
-    "@vueuse/nuxt": "^10.7.2",
-    "eslint": "^8.56.0",
+    "@unocss/eslint-config": "^0.58.6",
+    "@unocss/nuxt": "^0.58.6",
+    "@unocss/preset-rem-to-px": "^0.58.6",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/nuxt": "^10.9.0",
+    "eslint": "^8.57.0",
     "lottie-web": "^5.12.2",
-    "nuxt": "^3.10.2",
+    "nuxt": "^3.11.1",
     "nuxt-lodash": "^2.5.3",
-    "typescript": "^5.3.3",
-    "unocss": "^0.58.5",
+    "typescript": "^5.4.3",
+    "unocss": "^0.58.6",
     "unplugin-icons": "^0.18.5",
     "unplugin-vue-components": "^0.26.0",
     "vite-plugin-compression": "^0.5.1",
-    "vue": "^3.4.19",
-    "vue-router": "^4.2.5"
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
   }
 }
