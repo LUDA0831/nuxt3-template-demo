@@ -12,11 +12,15 @@ function onShowEnv() {
 </script>
 
 <template>
-  <div>
+  <div flex flex-col space-y-4>
     <div class="text-2xl font-bold">
       index
     </div>
-    <a-button type="primary" @click="onShowEnv">
+    <div flex space-x-4>
+      <div i-mdi-user text-4xl text-red />
+      <div i-mdi-github animate-spin text-36px />
+    </div>
+    <a-button type="primary" w-80px @click="onShowEnv">
       env
     </a-button>
   </div>

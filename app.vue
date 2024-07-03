@@ -1,7 +1,4 @@
 <script lang="ts" setup>
-import '@arco-design/web-vue/es/message/style/css.js'
-import '@arco-design/web-vue/es/notification/style/css.js'
-
 useHead({
   meta: [
     { name: 'description', content: '我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.我的神奇网站.' },

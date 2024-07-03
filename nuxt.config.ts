@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-lodash',
     '@pinia-plugin-persistedstate/nuxt',
+    'arco-design-nuxt-module',
   ],
   css: ['assets/css/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),
