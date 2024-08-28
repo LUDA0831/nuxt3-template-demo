@@ -2,6 +2,7 @@
 import { createRuntimeConfig, createViteConfig } from './build'
 
 export default defineNuxtConfig({
+  compatibilityDate: '2024-09-28',
   modules: [
     '@unocss/nuxt',
     '@pinia/nuxt',

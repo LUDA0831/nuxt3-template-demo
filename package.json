@@ -24,35 +24,43 @@
     "analyze": "nuxt analyze",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && npx simple-git-hooks",
     "typecheck": "nuxt typecheck",
     "lint": "eslint . --fix"
   },
   "dependencies": {
-    "@unocss/reset": "^0.61.0",
+    "@unocss/reset": "^0.62.3",
     "dplayer": "^1.27.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.21.2",
-    "@arco-design/web-vue": "^2.55.3",
-    "@iconify-json/mdi": "^1.1.67",
+    "@antfu/eslint-config": "^2.27.3",
+    "@arco-design/web-vue": "^2.56.1",
+    "@iconify-json/mdi": "^1.1.68",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
-    "@pinia/nuxt": "^0.5.1",
+    "@pinia/nuxt": "^0.5.4",
     "@types/dplayer": "^1.25.5",
-    "@unocss/eslint-config": "^0.61.0",
-    "@unocss/nuxt": "^0.61.0",
-    "@unocss/preset-rem-to-px": "^0.61.0",
-    "@vueuse/core": "^10.11.0",
-    "@vueuse/nuxt": "^10.11.0",
+    "@unocss/eslint-config": "^0.62.3",
+    "@unocss/nuxt": "^0.62.3",
+    "@unocss/preset-rem-to-px": "^0.62.3",
+    "@vueuse/core": "^11.0.3",
+    "@vueuse/nuxt": "^11.0.3",
     "arco-design-nuxt-module": "^0.1.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.9.1",
+    "lint-staged": "^15.2.9",
     "lottie-web": "^5.12.2",
-    "nuxt": "^3.12.3",
+    "nuxt": "^3.13.0",
     "nuxt-lodash": "^2.5.3",
-    "typescript": "^5.5.3",
-    "unocss": "^0.61.0",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.5.4",
+    "unocss": "^0.62.3",
     "vite-plugin-compression": "^0.5.1",
-    "vue": "^3.4.31",
-    "vue-router": "^4.4.0"
+    "vue": "^3.4.38",
+    "vue-router": "^4.4.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
