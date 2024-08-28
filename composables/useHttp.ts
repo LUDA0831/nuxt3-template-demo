@@ -1,7 +1,6 @@
 import { Message } from '@arco-design/web-vue'
 import type { FetchResponse, SearchParameters } from 'ofetch'
 import { useUserStore } from '~/stores/user.store'
-import IconEmoticonDead from '~icons/mdi/emoticon-dead'
 
 export interface ResOptions<T> {
   data: T
@@ -12,10 +11,7 @@ export interface ResOptions<T> {
 
 function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>) {
   const err = (text: string) => {
-    Message.error({
-      content: response?._data?.message ?? text,
-      icon: () => h(IconEmoticonDead),
-    })
+    Message.error({ content: response?._data?.message ?? text })
   }
   if (!response._data) {
     err('请求超时，服务器无响应！')
@@ -33,7 +29,10 @@ function handleError<T>(response: FetchResponse<ResOptions<T>> & FetchResponse<R
       navigateTo('/')
     },
   }
-  handleMap[response.status] ? handleMap[response.status]() : err('未知错误！')
+  if (handleMap[response.status])
+    handleMap[response.status]()
+  else
+    err('未知错误！')
 }
 // get方法传递数组形式参数
 function paramsSerializer(params?: SearchParameters) {
