@@ -2,13 +2,13 @@
 import { createRuntimeConfig, createViteConfig } from './build'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-09-28',
+  compatibilityDate: '2024-09-19',
   modules: [
     '@unocss/nuxt',
     '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
     'nuxt-lodash',
-    '@pinia-plugin-persistedstate/nuxt',
     'arco-design-nuxt-module',
   ],
   css: ['assets/css/index.css', '@unocss/reset/tailwind-compat.css'],
@@ -24,10 +24,6 @@ export default defineNuxtConfig({
   experimental: {
     // 启用新的实验性类型路由器使用 [unplugin-vue-router](https://github.com/posva/unplugin-vue-router).
     typedPages: true,
-  },
-  vue: {
-    // 实验性:启用' defineProps '的响应式解构 [Vue RFC#502](https://github.com/vuejs/rfcs/discussions/502)
-    propsDestructure: true,
   },
   vite: createViteConfig(),
   // vueuse
