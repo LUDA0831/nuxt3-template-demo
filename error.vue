@@ -1,4 +1,6 @@
 <script lang="tsx" setup>
+// tsx 写法示例
+
 const props = defineProps({
   error: Object,
 })
@@ -9,7 +11,7 @@ function handleError() {
 
 function btnDom() {
   return (
-    <a-button class="w-[120px]" type="primary" onClick={() => handleError()}>
+    <a-button w-120px type="primary" onClick={() => handleError()}>
       返回首页
     </a-button>
   )

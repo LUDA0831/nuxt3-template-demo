@@ -2,7 +2,7 @@
 import { createRuntimeConfig, createViteConfig } from './build'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-09-19',
+  compatibilityDate: '2024-10-15',
   modules: [
     '@unocss/nuxt',
     '@pinia/nuxt',
@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-lodash',
     'arco-design-nuxt-module',
+    'nuxt-swiper',
+    'dayjs-nuxt',
   ],
   css: ['assets/css/index.css', '@unocss/reset/tailwind-compat.css'],
   runtimeConfig: createRuntimeConfig(),
@@ -29,5 +31,9 @@ export default defineNuxtConfig({
   // vueuse
   vueuse: {
     ssrHandlers: true,
+  },
+  dayjs: {
+    plugins: ['relativeTime', 'advancedFormat', 'quarterOfYear', 'customParseFormat', 'isBetween', 'weekOfYear', 'weekYear'],
+    locales: ['zh-cn'],
   },
 })

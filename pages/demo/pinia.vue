@@ -16,7 +16,7 @@ function addCount() {
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     pinia
     <div>
       {{ userStore.userInfo }}

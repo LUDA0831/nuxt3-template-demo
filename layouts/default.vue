@@ -7,9 +7,9 @@ navList.value = routerList
 </script>
 
 <template>
-  <div class="mx-auto w-[1200px]">
-    <div class="flex p-4 space-x-4">
-      <nuxt-link v-for="nav in navList" :key="nav.name" :to="nav.to" class="hover:text-blue-500" active-class="text-blue-500" exact>
+  <div>
+    <div mx-auto w-1200px flex p-4 space-x-4>
+      <nuxt-link v-for="nav in navList" :key="nav.name" :to="nav.to" active-class="text-blue-500" exact hover-text-blue-500>
         {{ nav.name }}
       </nuxt-link>
     </div>

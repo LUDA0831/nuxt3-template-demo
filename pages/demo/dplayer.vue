@@ -20,7 +20,7 @@ function onPause() {
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     <div class="text-2xl font-bold">
       dplayer
     </div>

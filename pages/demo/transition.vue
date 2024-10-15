@@ -33,7 +33,7 @@ function remove(item: number) {
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     <div class="flex space-x-4">
       <a-button type="primary" @click="onAction">
         切换

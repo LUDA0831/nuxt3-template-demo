@@ -11,7 +11,7 @@ const path = 'https://labs.nearpod.com/bodymovin/demo/markus/halloween/markus.js
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     <div>lottie</div>
     <LottieAnimation ref="lottieRef" :path="path" :loop="true" class="mx-auto h-[500px] w-[500px]" />
   </div>

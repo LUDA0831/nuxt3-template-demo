@@ -36,7 +36,7 @@ async function onGetUserInfoApi() {
 }
 
 // 封装示例,lazy 不阻塞路由导航,进入页面服务端请求数据,顶层请求使用useAsyncData
-const { data, pending, refresh } = await useAsyncData(() => sys.getBanner(6), { lazy: true })
+const { data, status, refresh } = await useAsyncData(() => sys.getBanner(6), { lazy: true })
 
 const bannerList = computed(() => {
   return data.value?.data
@@ -44,9 +44,9 @@ const bannerList = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     <div>
-      {{ pending ? 'Loading' : bannerList }}
+      {{ status === 'pending' ? 'Loading' : bannerList }}
     </div>
     <div class="flex space-x-4">
       <button @click="onLogout">
@@ -58,7 +58,7 @@ const bannerList = computed(() => {
       <button @click="onGetUserInfoApi">
         getUserInfo
       </button>
-      <a-button :loading="pending" @click="refresh()">
+      <a-button :loading="status === 'pending'" @click="refresh()">
         刷新接口
       </a-button>
     </div>

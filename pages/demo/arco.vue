@@ -42,7 +42,7 @@ function onMessage() {
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     <div class="text-2xl font-bold">
       Arco UI
     </div>

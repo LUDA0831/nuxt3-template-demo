@@ -7,7 +7,7 @@ definePageMeta({
 </script>
 
 <template>
-  <div>
+  <div mx-auto container>
     auth
   </div>
 </template>
