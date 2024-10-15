@@ -20,7 +20,7 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev -o",
-    "clean": "nuxt clean",
+    "clean": "nuxt cleanup",
     "analyze": "nuxt analyze",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

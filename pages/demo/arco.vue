@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { Message, Notification } from '@arco-design/web-vue'
 import type { Ref } from 'vue'
+import { Message, Notification } from '@arco-design/web-vue'
 
 defineOptions({ name: 'DemoArco' })
 
