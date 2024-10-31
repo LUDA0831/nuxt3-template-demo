@@ -32,8 +32,4 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
-  dayjs: {
-    plugins: ['relativeTime', 'advancedFormat', 'quarterOfYear', 'customParseFormat', 'isBetween', 'weekOfYear', 'weekYear'],
-    locales: ['zh-cn'],
-  },
 })

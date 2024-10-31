@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@unocss/reset": "^0.63.6",
+    "dayjs": "^1.11.13",
     "dplayer": "^1.27.1",
     "nuxt-swiper": "^1.2.2"
   },
