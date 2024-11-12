@@ -5,7 +5,7 @@ FROM base as build-stage
 
 WORKDIR /app
 
-COPY package.json pnpm-lock.yaml .npmrc ./
+COPY package.json pnpm-lock.yaml ./
 
 RUN npm config set registry https://registry.npmmirror.com/
 RUN npm install -g pnpm
