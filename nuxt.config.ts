@@ -2,7 +2,6 @@
 import { createRuntimeConfig, createViteConfig } from './build'
 
 export default defineNuxtConfig({
-  compatibilityDate: '2024-10-15',
   modules: [
     '@unocss/nuxt',
     '@pinia/nuxt',
@@ -31,5 +30,8 @@ export default defineNuxtConfig({
   // vueuse
   vueuse: {
     ssrHandlers: true,
+  },
+  swiper: {
+    enableComposables: false,
   },
 })

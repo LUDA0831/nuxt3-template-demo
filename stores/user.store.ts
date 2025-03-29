@@ -1,5 +1,5 @@
-import { defineStore } from 'pinia'
 import type { LoginParams, LoginResultModel } from '~/apis/login'
+import { defineStore } from 'pinia'
 
 function storeSetup() {
   const userInfo = ref<LoginResultModel>()
