@@ -4,7 +4,7 @@ import {
   defineConfig,
   presetAttributify,
   presetIcons,
-  presetUno,
+  presetWind3,
   toEscapedSelector,
   transformerDirectives,
   transformerVariantGroup,
@@ -12,7 +12,7 @@ import {
 
 export default defineConfig({
   presets: [
-    presetUno(),
+    presetWind3(),
     presetAttributify(),
     presetIcons(),
     presetRemToPx(),
