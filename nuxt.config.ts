@@ -38,9 +38,5 @@ export default defineNuxtConfig({
     ssrHandlers: true,
   },
 
-  swiper: {
-    enableComposables: false,
-  },
-
   compatibilityDate: '2025-03-29',
 })

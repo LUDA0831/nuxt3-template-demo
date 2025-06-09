@@ -1,6 +1,6 @@
 <script lang="ts" setup>
+import type Swiper from 'swiper'
 import type { SwiperContainer } from 'swiper/element'
-import type { Swiper } from 'swiper/types'
 import { useDayjs } from '#dayjs'
 import { Message } from '@arco-design/web-vue'
 
