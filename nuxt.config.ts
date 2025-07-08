@@ -1,19 +1,30 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { createRuntimeConfig, createViteConfig } from './build'
+import { createRuntimeConfig, createViteConfig } from './vite-config'
 
 export default defineNuxtConfig({
   modules: [
-    '@unocss/nuxt',
     '@pinia/nuxt',
     'pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
-    'nuxt-lodash',
-    'arco-design-nuxt-module',
     'nuxt-swiper',
     'dayjs-nuxt',
+    'nuxt-lottie',
+    'shadcn-nuxt',
+    '@nuxtjs/tailwindcss',
+    'unplugin-icons/nuxt',
   ],
+  shadcn: {
+    prefix: '',
+    componentDir: '~/components/ui',
+  },
+  // 从第三方包自动导入
+  imports: {
+    presets: [
+      { from: 'vue-sonner', imports: ['toast'] },
+    ],
+  },
 
-  css: ['assets/css/index.css', '@unocss/reset/tailwind-compat.css'],
+  css: ['~/assets/css/index.css'],
   runtimeConfig: createRuntimeConfig(),
 
   app: {
@@ -37,6 +48,5 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
-
-  compatibilityDate: '2025-03-29',
+  compatibilityDate: '2025-07-08',
 })
